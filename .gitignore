@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Other files
+spb_2019_data.csv
+cluster_result2.csv
