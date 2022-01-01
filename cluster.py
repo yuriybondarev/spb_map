@@ -22,12 +22,14 @@ def tokenize(text):
 			rt = res[i].split(".")
 			res[i] = copy.deepcopy(rt[0])
 			res += rt[1:]
-		elif "." in res[i]:
-			res[i] = res[i].replace(".","")
 		if res[i].startswith("\""):
 			res[i] = res[i][1:]
-			if res[i].endswith("\""):
-				res[i] = res[i][:-1]
+		if res[i].endswith("\""):
+			res[i] = res[i][:-1]
+		if res[i].startswith("«"):
+			res[i] = res[i][1:]
+		if res[i].endswith("»"):
+			res[i] = res[i][:-1]
 	return res
 	
 def qualify_tokens(list_tokens):

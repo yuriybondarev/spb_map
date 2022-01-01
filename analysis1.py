@@ -19,14 +19,14 @@ def tokenize(text):
 	res = re.split(r"[ .,:;()\n]", text) # прибрати крапку
 	res = list(filter(lambda x: x != '', res))
 	for i in range(len(res)):
-		if not(res[i].startswith("@")) and "." in res[i]
+		if not(res[i].startswith("@")) and "." in res[i]:
 			rt = res[i].split(".")
 			res[i] = copy.deepcopy(rt[0])
 			res += rt[1:]
-		elif res[i].startswith("\""):
+		if res[i].startswith("\""):
 			res[i] = res[i][1:]
-			if res[i].endswith("\""):
-				res[i] = res[i][:-1]
+		if res[i].endswith("\""):
+			res[i] = res[i][:-1]
 	return res
 
 def qualify_tokens(list_tokens):
@@ -66,7 +66,7 @@ def get_keywords_number(list_tokens):
 	print(names)
 	return len(names)
 
-f = pd.read_csv("cluster_result2.csv", index_col=0)
+f = pd.read_csv("cluster_result.csv", index_col=0)
 f1 = f.query("result == 0")
 f2 = f.query("result == 1")
 f3 = f.query("result == 2")
@@ -83,7 +83,7 @@ dfr = pd.DataFrame.from_dict({"0_median": f1.median(),
 "2_min":f3.min(), 
 "2_max": f3.max()})
 print(dfr)
-# dfr.to_excel("stat.xlsx")
+dfr.to_excel("stat.xlsx")
 df = pd.read_csv("spb_2019_data.csv", index_col="myid")
 df = df.join(f)
 # print(df['Keywords'])
