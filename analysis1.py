@@ -103,4 +103,4 @@ for i,d in df.iterrows():
 # print(qt1)
 # print(get_keywords_number(qt1['words']))
 # print(df.columns)
-# df.to_csv("cluster_results_2_full.csv")
+# df.to_csv("cluster_results_full.csv")

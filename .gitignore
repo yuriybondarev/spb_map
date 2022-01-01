@@ -131,3 +131,9 @@ dmypy.json
 # Other files
 spb_2019_data.csv
 cluster_result2.csv
+cluster_result3.csv
+cluster_result.csv
+stat.xlsx
+df_for_clustering.csv
+cluster_results_full.csv
+cluster_results_2_full.csv
