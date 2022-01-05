@@ -9,13 +9,13 @@ import copy
 from sklearn.cluster import KMeans
 
 # alph = list(string.ascii_letters+string.digits+string.punctuation+string.printable+string.whitespace+'ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ')
-alph = list(string.ascii_letters+string.digits+".\"'«»-"+string.whitespace+'ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ')
+alph = list(string.ascii_letters+string.digits+".\"'«»"+string.whitespace+'ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ')
 
 min_words = 15
 min_keywords = 3
 
 def tokenize(text):
-	res = re.split(r"[ ,:;/\\()\n]", text)
+	res = re.split(r"[ «»\",:;/\\()\n-]", text)
 	res = list(filter(lambda x: x != '', res))
 	for i in range(len(res)):
 		if not(res[i].startswith("@")) and "." in res[i]:
@@ -31,6 +31,7 @@ def tokenize(text):
 		if res[i].endswith("»"):
 			res[i] = res[i][:-1]
 		if "«" in res[i] or "»" in res[i]:
+			# temp = re.split("«»",res[i])
 			res[i] = res[i].replace("«","")
 			res[i] = res[i].replace("»","")
 	return res
