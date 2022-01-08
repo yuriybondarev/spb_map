@@ -30,10 +30,6 @@ def tokenize(text):
 			res[i] = res[i][1:]
 		if res[i].endswith("»"):
 			res[i] = res[i][:-1]
-		if "«" in res[i] or "»" in res[i]:
-			# temp = re.split("«»",res[i])
-			res[i] = res[i].replace("«","")
-			res[i] = res[i].replace("»","")
 	return res
 	
 def qualify_tokens(list_tokens):
