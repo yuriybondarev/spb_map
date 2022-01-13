@@ -1,5 +1,5 @@
 import os
-# import tensorflow as tf
+import tensorflow as tf
 # Force CPU
 # os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'  # 0 = all messages are logged, 3 - INFO, WARNING, and ERROR messages are not printed
@@ -366,7 +366,7 @@ if __name__ == "__main__":
         # Save model to file
         model.save(filepath=model_file)
 
-    model = keras.models.load_model(model_file)
+    model = tf.keras.models.load_model(model_file)
     predict_model = make_model(1, vectorizer.vocab_size)
     predict_model.set_weights(model.get_weights())
 
