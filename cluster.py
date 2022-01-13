@@ -9,10 +9,7 @@ import copy
 from sklearn.cluster import KMeans
 
 # alph = list(string.ascii_letters+string.digits+string.punctuation+string.printable+string.whitespace+'ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ')
-alph = list(string.ascii_letters+string.digits+".\"'«»"+string.whitespace+'ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ')
-
-min_words = 15
-min_keywords = 3
+alph = list(string.ascii_letters+".\"'«»"+string.whitespace+'ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ')
 
 def tokenize(text):
 	res = re.split(r"[ «»\",:;/\\()\n\t\r]", text)
