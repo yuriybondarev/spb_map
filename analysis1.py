@@ -16,6 +16,7 @@ f = pd.read_csv("cluster_result.csv", index_col=0)
 f1 = f.query("result == 0")
 f2 = f.query("result == 1")
 f3 = f.query("result == 2")
+f4 = f.query("result == 3")
 dfr = pd.DataFrame.from_dict({"0_median": f1.median(), 
 "0_mean": f1.mean(), 
 "0_min":f1.min(), 
@@ -27,7 +28,11 @@ dfr = pd.DataFrame.from_dict({"0_median": f1.median(),
 "2_median": f3.median(), 
 "2_mean": f3.mean(), 
 "2_min":f3.min(), 
-"2_max": f3.max()})
+"2_max": f3.max(),
+"3_median": f4.median(), 
+"3_mean": f4.mean(), 
+"3_min":f4.min(), 
+"3_max": f4.max()})
 print(dfr)
 dfr.to_excel("stat.xlsx")
 df = pd.read_csv("spb_2019_data.csv", index_col="myid")

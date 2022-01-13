@@ -15,7 +15,7 @@ min_words = 15
 min_keywords = 3
 
 def tokenize(text):
-	res = re.split(r"[ «»\",:;/\\()\n-]", text)
+	res = re.split(r"[ «»\",:;/\\()\n\t\r]", text)
 	res = list(filter(lambda x: x != '', res))
 	for i in range(len(res)):
 		if not(res[i].startswith("@")) and "." in res[i]:
@@ -90,9 +90,9 @@ def make_data(ds):
 	df = pd.DataFrame(data)	
 	df.to_csv("df_for_clustering.csv")
 
-def cluster(ds):
+def cluster(ds, nc):
 
-	kmeans = KMeans(n_clusters=3, init='random', max_iter=100, n_init=1) # , init=np.array([[5.5, 11.5], [10.57, 7.57], [7.5, 15.0]])
+	kmeans = KMeans(n_clusters=nc, init='random', max_iter=100, n_init=1) # , init=np.array([[5.5, 11.5], [10.57, 7.57], [7.5, 15.0]])
 	model = kmeans.fit(ds)
 	rs = model.labels_.tolist()
 	print(set(rs))
@@ -107,4 +107,4 @@ if __name__ == "__main__":
 	ds = pd.read_csv("spb_2019_data.csv", index_col="myid")
 	make_data(ds)
 	ds2 = pd.read_csv("df_for_clustering.csv", sep=",", encoding='utf-8', index_col=0)
-	cluster(ds2)
+	cluster(ds2, 4)
