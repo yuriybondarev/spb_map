@@ -1,15 +1,15 @@
 import os
+# import tensorflow as tf
 # Force CPU
-os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+# os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'  # 0 = all messages are logged, 3 - INFO, WARNING, and ERROR messages are not printed
 
-
-from keras.callbacks import LambdaCallback
-from keras.models import Sequential
-from keras.layers import Dense, Dropout, Embedding, LSTM, TimeDistributed
-from keras.optimizers import RMSprop
-from keras.utils.data_utils import get_file
-import keras
+# from tensorflow import keras
+from tensorflow.keras.callbacks import LambdaCallback
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Dropout, Embedding, LSTM, TimeDistributed
+from tensorflow.keras.optimizers import RMSprop
+# from tensorflow.keras.utils.data_utils import get_file
 from collections import Counter
 import pickle
 import numpy as np

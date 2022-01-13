@@ -51,7 +51,7 @@ df = df.join(f)
 df2 = df.query("result == 2")
 print(len(df2))
 print(df.groupby(['result']).count())
-df2.to_csv("for_dataset_2.csv")
+df2.to_csv("for_dataset.csv")
 # for i,d in df2.iterrows():
 	# with open("input.txt","a", encoding="utf-8") as inf:
 		# inf.write(d['caption'])
